@@ -26,11 +26,26 @@ router.get('/:id', async(req, res) => {
     }
 })
 
-//post: create a new user
+//post: create a new account
 router.post('/', async (req, res) => {
     try{
-        const newUser = await UserModel.create(req.body)
-        res.send(newUser)
+        //check if user exists
+        const existUser = await UserModel.find({email: req.body.email})
+        // const existUsername = await UserModel.find({username:req.body.username})
+        
+        //if there is a object inside of the array
+        if(existUser[0]){
+            return res.send('User already exist!')
+        }
+
+        //if there is a object inside of the array
+        // if (existUsername[0]){
+        //     return res.send('User already exists!')
+        // }
+
+        //create a new user
+        const user = await UserModel.create(req.body)
+        res.send(user)
     } catch(error){
         console.log(error);
         res.status(403).send('Cannot create')
@@ -40,7 +55,7 @@ router.post('/', async (req, res) => {
 //put: update by id
 router.put('/:id', async(req, res) => {
     try{
-        //find id,update body, after the update return doc you updated
+        //find id,update body, return doc after the update
         const updatedUser = await UserModel.findByIdAndUpdate(req.params.id, req.body, {'returnDocument':'after'})
         res.send(updatedUser)
     } catch(error){

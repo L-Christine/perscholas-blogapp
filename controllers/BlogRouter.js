@@ -6,12 +6,30 @@ const router = express.Router()
 router.get('/', async (req, res) => {
     try{
         const blogs = await BlogModel.find({})
-        res.send(blogs)
+        res.render('Blogs/Blogs', {blogs: blogs})
 
     } catch(error){
         console.log(error);
         res.status(403).send('Cannot get')
     }
+})
+
+//====Create
+//link to create new page
+router.get('/blog/new', (req, res)=> {
+    res.render('Blogs/New')
+})
+//post: create a new blog
+router.post('/', async (req, res) => {
+    try{
+        const newBlog = await BlogModel.create(req.body)
+        res.send(newBlog)
+        res.redirect('/blog')
+    } catch(error){
+        console.log(error);
+        res.status(403).send('Cannot create')
+    }
+    
 })
 
 //Get blog by id
@@ -22,17 +40,6 @@ router.get('/:id', async(req, res) => {
     } catch(error){
         console.log(error);
         res.status(403).send('Cannot get')
-    }
-})
-
-//post: create a new blog
-router.post('/', async (req, res) => {
-    try{
-        const newBlog = await BlogModel.create(req.body)
-        res.send(newBlog)
-    } catch(error){
-        console.log(error);
-        res.status(403).send('Cannot create')
     }
 })
 
@@ -53,10 +60,11 @@ router.delete('/:id', async(req,res) => {
         const deletedBlog = await BlogModel.findByIdAndRemove(req.params.id)
         console.log(deletedBlog);
         res.send('Blog Deleted')
+        res.redirect('/blog')
     } catch(error){
         console.log(error);
         res.status(403).send('Cannot create')
-    }
+    } 
 })
 
 

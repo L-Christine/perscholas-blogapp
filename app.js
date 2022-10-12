@@ -1,23 +1,30 @@
 const express = require('express')
 const mongoose = require('mongoose')
-require('dotenv').config()
 const morgan = require('morgan')
+require('dotenv').config()
+const methodOverride = require('method-override')
 
 //====App init
 const app = express()
 const PORT = 3000
 
 //====Middleware
+app.use(express.static('public')) //all static files -> inside public folder
+
 app.use(morgan('dev'))
 app.use(express.json())
 
+
+//====App settings
+app.set("view engine", "jsx"); //<-view as default
+app.engine("jsx", require("express-react-views").createEngine());
 
 //anything with /blog will be handled by the router
 app.use('/blog', require('./controllers/BlogRouter'))
 app.use('/user', require('./controllers/UserRouter'))
 
 app.get('/', (req, res) => {
-    res.send('Hello')
+    res.render('pages/HomePage') //view = default
 })
 
 //====Listen
