@@ -15,28 +15,38 @@ router.get('/', async (req, res) => {
 })
 
 //====Create
-//link to create new page
-router.get('/blog/new', (req, res)=> {
-    res.render('Blogs/New')
+//link to create new blog page
+router.get('/new', (req, res)=> {
+    res.render('Blogs/NewBlog')
 })
-//post: create a new blog
+//post: create new blog (default /blog)
 router.post('/', async (req, res) => {
     try{
         const newBlog = await BlogModel.create(req.body)
-        res.send(newBlog)
         res.redirect('/blog')
     } catch(error){
         console.log(error);
         res.status(403).send('Cannot create')
     }
-    
 })
 
-//Get blog by id
+//====Read: get blog by id & SHOW
 router.get('/:id', async(req, res) => {
     try{
         const blog = await BlogModel.findById(req.params.id)
-        res.send(blog)
+        res.render('Blogs/ShowBlog', {blog: blog})
+    } catch(error){
+        console.log(error);
+        res.status(403).send('Cannot get')
+    }
+})
+
+//====Update
+//link to edit blog page
+router.get('/:id/edit', async(req, res)=> {
+    try{
+        const editBlog = await BlogModel.findById(req.params.id)
+        res.render('Blogs/EditBlog', {blog: editBlog})
     } catch(error){
         console.log(error);
         res.status(403).send('Cannot get')
@@ -47,19 +57,20 @@ router.get('/:id', async(req, res) => {
 router.put('/:id', async(req, res) => {
     try{
         //find id,update body, after the update return doc you updated
-        const updatedBlog = await BlogModel.findByIdAndUpdate(req.params.id, req.body, {'returnDocument':'after'})
-        res.send(updatedBlog)
+        const id= req.params.id
+        await BlogModel.findByIdAndUpdate(id, req.body, {'returnDocument':'after'})
+        res.redirect(`/blog/${id}`)
     } catch(error){
         console.log(error);
         res.status(403).send('Cannot create')
     }
 })
-//delete 
+
+//====Delete 
 router.delete('/:id', async(req,res) => {
     try{
         const deletedBlog = await BlogModel.findByIdAndRemove(req.params.id)
         console.log(deletedBlog);
-        res.send('Blog Deleted')
         res.redirect('/blog')
     } catch(error){
         console.log(error);

@@ -1,14 +1,16 @@
 @import url('https://fonts.googleapis.com/css?family=Comfortaa|Righteous');
 
 body {
-  background: url(https://images.clipartlogo.com/files/istock/previews/8741/87414357-apple-seamless-pastel-colors-pattern-fruits-texture-background.jpg);
+  background-image: url('/images/bg.jpg');
   margin: 0;
   font-family: 'Comfortaa', cursive;
 }
 
 h1 {
   font-family: 'Righteous', cursive;
-  background: antiquewhite;
+  background: rgba(52, 114, 62, 0.5);
+  color: #006c5f;
+  text-shadow: 1px 1px 1px #f1f8e9;
   margin:0;
   margin-bottom: .5em;
   padding: 1em;
@@ -16,23 +18,14 @@ h1 {
 }
 
 a {
-  color: orange;
+  color: ghostwhite;
   text-decoration: none;
-  text-shadow: 1px 1px 1px black;
+  text-shadow: 1px 1px 1px #00897b;
   font-size: 1.5em;
-  background: rgba(193, 235, 187, .9);
 }
 
 a:hover {
-  color: ghostwhite;
-}
-
-li {
-  list-style: none;
-}
-
-li a {
-  color: mediumseagreen;
+  color: #baedac;
 }
 
 input[type=text] {
@@ -41,8 +34,54 @@ input[type=text] {
 
 input[type=submit] {
   padding: .3em;
-  color: orange;
+  color: ghostwhite;
   background: mediumseagreen;
   font-size: 1em;
   border-radius: 10%;
 }
+
+.btn{
+  padding: .3em;
+  color: ghostwhite;
+  background: mediumseagreen;
+  font-size: 1em;
+  border-radius: 10%;
+}
+
+nav{
+  display: flex;
+  justify-content: space-evenly;
+  background-color: rgba(175, 213, 180, 0.8);
+}
+
+div{
+  
+}
+
+.blogSec{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.blogDiv{
+  padding: 20px;
+  margin: 10px;
+  width: 300px;
+  border: solid;
+  border-width: 2px;
+  border-color:rgb(5, 142, 124);
+  background-color: rgba(255, 255, 255, 0.5);
+  color: #449b8b;
+  text-shadow: 1px 1px 1px #ffffff;
+}
+
+.blogDiv:hover {
+  border-color:#519657;
+  box-shadow: 3px 3px 3px 3px rgba(5, 142, 124, 0.5);
+  transition: 0.3s;
+}
+
+
+

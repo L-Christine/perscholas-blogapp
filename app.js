@@ -10,10 +10,10 @@ const PORT = 3000
 
 //====Middleware
 app.use(express.static('public')) //all static files -> inside public folder
-
 app.use(morgan('dev'))
 app.use(express.json())
-
+app.use(express.urlencoded({ extended: false }));
+app.use(methodOverride('_method'))
 
 //====App settings
 app.set("view engine", "jsx"); //<-view as default
