@@ -9,8 +9,8 @@ body {
 h1 {
   font-family: 'Righteous', cursive;
   background: rgba(52, 114, 62, 0.5);
-  color: #006c5f;
-  text-shadow: 1px 1px 1px #f1f8e9;
+  color: ghostwhite;
+  text-shadow: 1px 1px 1px #00897b;
   margin:0;
   margin-bottom: .5em;
   padding: 1em;
@@ -22,14 +22,16 @@ a {
   text-decoration: none;
   text-shadow: 1px 1px 1px #00897b;
   font-size: 1.5em;
+  
 }
 
 a:hover {
-  color: #baedac;
+  color: #97e8d4;
 }
 
 input[type=text] {
   padding: .3em;
+  margin: .5em;
 }
 
 input[type=submit] {
@@ -54,15 +56,12 @@ nav{
   background-color: rgba(175, 213, 180, 0.8);
 }
 
-div{
-  
-}
-
 .blogSec{
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: center;
+  text-align: center;
 }
 
 .blogDiv{
@@ -75,6 +74,9 @@ div{
   background-color: rgba(255, 255, 255, 0.5);
   color: #449b8b;
   text-shadow: 1px 1px 1px #ffffff;
+  border-radius: 10%;
+  overflow-wrap: break-word;
+  overflow: hidden;
 }
 
 .blogDiv:hover {
@@ -83,5 +85,11 @@ div{
   transition: 0.3s;
 }
 
-
+.formBox{
+  text-align: center;
+  background-color: rgba(175, 213, 180, 0.5);
+  margin: 2em;
+  border-radius: 10%;
+  display: block;
+}
 

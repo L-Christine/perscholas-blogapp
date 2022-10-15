@@ -27,7 +27,7 @@ class Blogs extends React.Component{
                             
                             <a href={`/blog/${blog._id}/edit`} className='btn'>Edit</a>
 
-                            <form action={`/blog/${blog._id}?_method=DELETE`} method= 'post'><input type='submit' value='Delete' /></form>
+                            <form action={`/blog/${blog._id}?_method=DELETE`} method= 'post'><input type='submit' value='Delete' className='btn'/></form>
                         
                         </div>
                     </a>
