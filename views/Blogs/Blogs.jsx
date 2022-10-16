@@ -21,14 +21,9 @@ class Blogs extends React.Component{
                     {blogs.map((blog, i) => (
                     <a href={`/blog/${blog._id}`}>
                         <div className='blogDiv'>
-                            {blog.title}<br/>
-                            by {blog.author}<br/>
-                            {blog.body}<br/>
-                            
-                            <a href={`/blog/${blog._id}/edit`} className='btn'>Edit</a>
-
-                            <form action={`/blog/${blog._id}?_method=DELETE`} method= 'post'><input type='submit' value='Delete' className='btn'/></form>
-                        
+                            {blog.title}
+                            {blog.author}
+                            {blog.body}
                         </div>
                     </a>
                     ))}

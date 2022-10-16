@@ -20,6 +20,7 @@ class New extends React.Component {
                         Author: <input type= 'text' name= 'author' /><br/>
                         Likes: <input type= 'number' name= 'likes' /><br/>
                         Sponsored: <input type= 'checkbox' name= 'sponsored' /><br/>
+                        
                         <input type= 'submit' name= '' value= 'Submit'/>
                     </form>
                 </div>

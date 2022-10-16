@@ -21,6 +21,11 @@ router.get('/new', (req, res)=> {
 })
 //post: create new blog (default /blog)
 router.post('/', async (req, res) => {
+    if(req.body.sponsored === 'on'){
+        req.body.sponsored = true
+    } else{
+        req.body.sponsored = false
+    }
     try{
         const newBlog = await BlogModel.create(req.body)
         res.redirect('/blog')
@@ -55,6 +60,11 @@ router.get('/:id/edit', async(req, res)=> {
 
 //put: update by id
 router.put('/:id', async(req, res) => {
+    if(req.body.sponsored === 'on'){
+        req.body.sponsored = true
+    } else{
+        req.body.sponsored = false
+    }
     try{
         //find id,update body, after the update return doc you updated
         const id= req.params.id

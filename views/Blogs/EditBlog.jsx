@@ -20,9 +20,9 @@ class EditBlog extends React.Component{
                     Body: <input type='text' name='body' defaultValue={blog.body}/><br/>
                     Author: <input type='text' name='author' defaultValue={blog.author}/><br/>
                     Likes: <input type='number' name='likes' defaultValue={blog.likes}/><br/>
-                    Sponsored: <input type='checkbox' name='sponsored' defaultValue={blog.sponsored}/><br/>
+                    Sponsored: {blog.sponsored ? <input type= 'checkbox' name='sponsored' defaultChecked/> : <input type='checkbox' name='sponsored'/>}<br/>
 
-                    <input type='submit' name='' value='Submit'/>
+                    <input type='submit' name='' value='Update'/>
                 </form>
             </div>
         )

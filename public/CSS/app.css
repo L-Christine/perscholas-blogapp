@@ -1,5 +1,11 @@
 @import url('https://fonts.googleapis.com/css?family=Comfortaa|Righteous');
 
+:root{
+  --background-color:;
+  --text-shadow: #00897b; 
+  /* var(--text-shadow);적용법 */
+}
+
 body {
   background-image: url('/images/bg.jpg');
   margin: 0;
@@ -29,9 +35,17 @@ a:hover {
   color: #97e8d4;
 }
 
-input[type=text] {
+input{
   padding: .3em;
   margin: .5em;
+  outline: none;
+  border: 1px solid mediumaquamarine;
+}
+
+input:focus{
+  box-shadow: 2px 2px 2px 2px rgba(5, 142, 124, 0.5);
+  transition: 0.3s;
+  background-color: #deefeb;
 }
 
 input[type=submit] {
@@ -53,6 +67,7 @@ input[type=submit] {
 nav{
   display: flex;
   justify-content: space-evenly;
+  align-items: center;
   background-color: rgba(175, 213, 180, 0.8);
 }
 
@@ -61,35 +76,51 @@ nav{
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: center;
-  text-align: center;
+  /* text-align: center; */
 }
 
 .blogDiv{
   padding: 20px;
   margin: 10px;
   width: 300px;
+  height: 300px;
   border: solid;
   border-width: 2px;
   border-color:rgb(5, 142, 124);
   background-color: rgba(255, 255, 255, 0.5);
-  color: #449b8b;
-  text-shadow: 1px 1px 1px #ffffff;
+  /* color: #449b8b; */
+  color: #e0f2f1;
+  text-shadow: 1px 1px 1px #449b8b;
   border-radius: 10%;
   overflow-wrap: break-word;
-  overflow: hidden;
+  overflow:clip;
+  /* text-overflow: ellipsis; */
+  display: flexbox;
+  flex-direction: row;
+  column-gap: 10px;
 }
 
 .blogDiv:hover {
-  border-color:#519657;
+  color: #97e8d4;
+  border-color:#97e8d4;
   box-shadow: 3px 3px 3px 3px rgba(5, 142, 124, 0.5);
   transition: 0.3s;
 }
 
 .formBox{
-  text-align: center;
   background-color: rgba(175, 213, 180, 0.5);
   margin: 2em;
   border-radius: 10%;
   display: block;
 }
 
+.blogContent{
+  align-content: center;
+  text-align: center;
+  background-color: rgba(175, 213, 180, 0.5);
+}
+
+section{
+  padding: 50px;
+  background-color: rgba(255, 255, 255, 0.5);
+}
