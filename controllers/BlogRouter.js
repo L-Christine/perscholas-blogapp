@@ -2,12 +2,23 @@ const express = require('express')
 const BlogModel = require('../models/BlogSchema')
 
 const router = express.Router()
+
+//Add privacy to this router or routes (cannot access to the blog if not logged in)
+//Middleware Function 
+router.use((req, res, next) => {
+    //if logged in let user access to rest of the content below
+    if (req.session.loggedIn){
+        next()
+    } else{
+        res.redirect('/user/signin')
+    }
+})
+
 //This file has /blog route as a default
 router.get('/', async (req, res) => {
     try{
         const blogs = await BlogModel.find({})
-        res.render('Blogs/Blogs', {blogs: blogs})
-
+        res.render('Blogs/Blogs', {blogs: blogs, loggedInUser: req.session.username})
     } catch(error){
         console.log(error);
         res.status(403).send('Cannot get')
@@ -15,7 +26,7 @@ router.get('/', async (req, res) => {
 })
 
 //====Create
-//link to create new blog page
+//link to create a new blog page
 router.get('/new', (req, res)=> {
     try{
         res.render('Blogs/NewBlog')
@@ -24,7 +35,7 @@ router.get('/new', (req, res)=> {
         res.status(403).send('Not Found')
     }
 })
-//post: create new blog (default /blog)
+//POST: create new blog (default /blog)
 router.post('/', async (req, res) => {
     try{
         if(req.body.sponsored === 'on'){
@@ -32,6 +43,8 @@ router.post('/', async (req, res) => {
         } else{
             req.body.sponsored = false
         }
+        //set the author to the logged in user
+        req.body.author = req.session.username
         const newBlog = await BlogModel.create(req.body)
         res.redirect('/blog')
     } catch(error){

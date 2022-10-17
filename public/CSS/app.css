@@ -32,14 +32,12 @@ a:hover {
 .formBox{
   background-color: rgba(175, 213, 180, 0.5);
   margin: 2em;
-  padding: 2em;
+  padding: 5em;
   border-radius: 10%;
-  /* text-align: center; */
+  text-align: center;
 }
 
 textarea{
-  padding: .3em;
-  margin: .5em;
   outline: none;
   border: 1px solid mediumaquamarine;
 }
@@ -83,7 +81,7 @@ input[type=submit] {
 
 .btn:hover{
   color: mediumseagreen;
-  background: ghostwhite;
+  background: #deefeb;
 }
 
 nav{

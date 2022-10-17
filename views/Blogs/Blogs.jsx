@@ -3,8 +3,7 @@ const Navbar = require('../components/Navbar')
 
 class Blogs extends React.Component{
     render(){
-        const {blogs} = this.props
-        console.log(this.props.blogs);
+        const {blogs, loggedInUser} = this.props
         return(
             <div>
                 <head>
@@ -21,6 +20,13 @@ class Blogs extends React.Component{
                             {blog.title}<hr/>
                             by. {blog.author}<hr/>
                             <div className='previewText'>{blog.body}</div>
+
+                            {/* if blog was created by the logged in User then you see edit button */}
+                            {blog.author === loggedInUser ? (
+                                <div>
+                                    <a href={`/blog/${blog._id}/edit`} className='btn'>Edit</a>
+                                </div>
+                            ) : null}
                         </div>
                     </a>
                     ))}

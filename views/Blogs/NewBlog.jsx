@@ -16,12 +16,12 @@ class New extends React.Component {
                     <textarea type= 'text' name= 'title' cols='40' required/><br/>
                     Body<br/>
                     <textarea type= 'text' name= 'body' rows='20' cols='40' required/><br/>
-                    Author<br/>
-                    <textarea type= 'text' name= 'author' cols='40' required/><br/>
+                    {/* Author<br/>
+                    <textarea type= 'text' name= 'author' cols='40' required/><br/> */}
                     Likes<input type= 'number' name= 'likes' /><br/>
                     Sponsored:<input type= 'checkbox' name= 'sponsored' /><br/>
                         
-                    <input type= 'submit' name= '' value= 'Submit'/>
+                    <input type= 'submit' name= '' value= 'Submit' className='btn'/>
                     </form>
             </div>
         )
