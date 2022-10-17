@@ -9,9 +9,8 @@ class ShowBlog extends React.Component{
                 <head>
                     <link rel='stylesheet' href='/CSS/app.css'/>
                 </head>
-                <div>
-                    <Navbar />
-                </div>
+                <Navbar />
+
                     <h1>{blog.title}</h1>
                 <div className='blogContent'>
                     <h3>by. {blog.author}</h3>
@@ -19,7 +18,7 @@ class ShowBlog extends React.Component{
                     <p>Likes: {blog.likes}</p>
                     <p>Sponsored: {blog.sponsored ? 'yes' : 'no' }</p><br/>
                     <a href={`/blog/${blog._id}/edit`} className='btn'>Edit</a>
-                    <form action={`/blog/${blog._id}?_method=DELETE`} method= 'post'><input type='submit' value='Delete' className='btn'/></form>
+                    <form action={`/blog/${blog._id}?_method=DELETE`} method='post'><input type='submit' value='Delete' className='btn'/></form>
                 </div>
             </div>
 

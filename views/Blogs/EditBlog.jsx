@@ -9,18 +9,19 @@ class EditBlog extends React.Component{
                 <head>
                     <link rel='stylesheet' href='/CSS/app.css'/>
                 </head>
-                <div>
-                    <Navbar />
-                </div>
+                <Navbar />
 
                 <h1>Edit Blog</h1>
                 
                 <form action={`/blog/${blog._id}?_method=PUT`} method='POST' className='formBox'>
-                    Title: <input type='text' name='title' defaultValue={blog.title}/><br/>
-                    Body: <input type='text' name='body' defaultValue={blog.body}/><br/>
-                    Author: <input type='text' name='author' defaultValue={blog.author}/><br/>
-                    Likes: <input type='number' name='likes' defaultValue={blog.likes}/><br/>
-                    Sponsored: {blog.sponsored ? <input type= 'checkbox' name='sponsored' defaultChecked/> : <input type='checkbox' name='sponsored'/>}<br/>
+                    Title<br/>
+                    <textarea type='text' name='title' cols='40' defaultValue={blog.title}/><br/>
+                    Body<br/>
+                    <textarea type='text' name='body'  rows='20' cols='40' defaultValue={blog.body}/><br/>
+                    Author<br/>
+                    <textarea type='text' name='author' cols='40' defaultValue={blog.author}/><br/>
+                    Likes<input type='number' name='likes' defaultValue={blog.likes}/><br/>
+                    Sponsored{blog.sponsored ? <input type= 'checkbox' name='sponsored' defaultChecked/> : <input type='checkbox' name='sponsored'/>}<br/>
 
                     <input type='submit' name='' value='Update'/><br/>
                     <a href={`/blog/${blog._id}`} className='btn'>Back</a>

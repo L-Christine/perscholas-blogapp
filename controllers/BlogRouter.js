@@ -2,7 +2,7 @@ const express = require('express')
 const BlogModel = require('../models/BlogSchema')
 
 const router = express.Router()
-
+//This file has /blog route as a default
 router.get('/', async (req, res) => {
     try{
         const blogs = await BlogModel.find({})
@@ -17,16 +17,21 @@ router.get('/', async (req, res) => {
 //====Create
 //link to create new blog page
 router.get('/new', (req, res)=> {
-    res.render('Blogs/NewBlog')
+    try{
+        res.render('Blogs/NewBlog')
+    } catch(error){
+        console.log(error);
+        res.status(403).send('Not Found')
+    }
 })
 //post: create new blog (default /blog)
 router.post('/', async (req, res) => {
-    if(req.body.sponsored === 'on'){
-        req.body.sponsored = true
-    } else{
-        req.body.sponsored = false
-    }
     try{
+        if(req.body.sponsored === 'on'){
+            req.body.sponsored = true
+        } else{
+            req.body.sponsored = false
+        }
         const newBlog = await BlogModel.create(req.body)
         res.redirect('/blog')
     } catch(error){
@@ -60,12 +65,12 @@ router.get('/:id/edit', async(req, res)=> {
 
 //put: update by id
 router.put('/:id', async(req, res) => {
-    if(req.body.sponsored === 'on'){
-        req.body.sponsored = true
-    } else{
-        req.body.sponsored = false
-    }
     try{
+        if(req.body.sponsored === 'on'){
+            req.body.sponsored = true
+        } else{
+            req.body.sponsored = false
+        }
         //find id,update body, after the update return doc you updated
         const id= req.params.id
         await BlogModel.findByIdAndUpdate(id, req.body, {'returnDocument':'after'})

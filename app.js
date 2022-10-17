@@ -1,8 +1,8 @@
 const express = require('express')
 const mongoose = require('mongoose')
 const morgan = require('morgan')
-require('dotenv').config()
 const methodOverride = require('method-override')
+require('dotenv').config()
 
 //====App init
 const app = express()

@@ -10,9 +10,8 @@ class Blogs extends React.Component{
                 <head>
                     <link rel='stylesheet' href='/CSS/app.css'/>
                 </head>
-            <div>
                 <Navbar />
-            </div>
+                
             <div>
                 <h1>Blogs</h1>
                 <section className='blogSec'>

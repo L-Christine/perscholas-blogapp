@@ -10,7 +10,7 @@ class Navbar extends React.Component{
             <nav>
                 <a href='/'>Home</a>
                 <a href='/blog'>Blogs</a>
-                <a href='/blog/new'>Create New Blog</a>
+                <a href='/blog/new'>Create</a>
                 <a href='/signin'>Sign in / Sign up</a>
             </nav>
 
