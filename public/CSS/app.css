@@ -1,15 +1,10 @@
 @import url('https://fonts.googleapis.com/css?family=Comfortaa|Righteous');
 
-:root{
-  --background-color:;
-  --text-shadow: #00897b; 
-  /* var(--text-shadow);적용법 */
-}
-
 body {
   background-image: url('/images/bg.jpg');
   margin: 0;
   font-family: 'Comfortaa', cursive;
+  color:#005d53;
 }
 
 h1 {
@@ -28,7 +23,6 @@ a {
   text-decoration: none;
   text-shadow: 1px 1px 1px #00897b;
   font-size: 1.5em;
-  
 }
 
 a:hover {
@@ -62,6 +56,13 @@ input[type=submit] {
   background: mediumseagreen;
   font-size: 1em;
   border-radius: 10%;
+  display: flexbox;
+  flex-direction: row;
+}
+
+.btn:hover{
+  color: mediumseagreen;
+  background: ghostwhite;
 }
 
 nav{
@@ -76,7 +77,6 @@ nav{
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: center;
-  /* text-align: center; */
 }
 
 .blogDiv{
@@ -88,16 +88,14 @@ nav{
   border-width: 2px;
   border-color:rgb(5, 142, 124);
   background-color: rgba(255, 255, 255, 0.5);
-  /* color: #449b8b; */
   color: #e0f2f1;
   text-shadow: 1px 1px 1px #449b8b;
   border-radius: 10%;
-  overflow-wrap: break-word;
-  overflow:clip;
-  /* text-overflow: ellipsis; */
-  display: flexbox;
+  display:flexbox;
   flex-direction: row;
-  column-gap: 10px;
+  overflow: hidden;
+  text-overflow: ellipsis; 
+  /* overflow-wrap: break-word; */
 }
 
 .blogDiv:hover {
@@ -107,20 +105,32 @@ nav{
   transition: 0.3s;
 }
 
+.previewText{
+  overflow-wrap: break-word;
+  display: -webkit-box;
+  overflow: hidden;
+  -webkit-line-clamp: 5;
+  -webkit-box-orient: vertical;
+}
+
 .formBox{
   background-color: rgba(175, 213, 180, 0.5);
   margin: 2em;
+  padding: 2em;
   border-radius: 10%;
-  display: block;
+  display: flexbox;
+  text-align: center;
 }
 
 .blogContent{
   align-content: center;
   text-align: center;
-  background-color: rgba(175, 213, 180, 0.5);
+  background-color: rgba(175, 213, 180, 0.6);
+  margin: 2em;
+  padding: 2em;
+  border-radius: 10%;
 }
 
 section{
-  padding: 50px;
-  background-color: rgba(255, 255, 255, 0.5);
+  background-color: rgba(255, 255, 255, 0.7);
 }

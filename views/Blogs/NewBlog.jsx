@@ -13,17 +13,15 @@ class New extends React.Component {
                 </div>
 
                 <h1>Create New Blog</h1>
-                <div className='formBox'>
-                    <form action='/blog' method='POST'>
-                        Title: <input type= 'text' name= 'title'/><br/>
-                        Body: <input type= 'text' name= 'body' /><br/>
-                        Author: <input type= 'text' name= 'author' /><br/>
-                        Likes: <input type= 'number' name= 'likes' /><br/>
-                        Sponsored: <input type= 'checkbox' name= 'sponsored' /><br/>
+                <form action='/blog' method='POST' className='formBox'>
+                    Title: <input type= 'text' name= 'title' placeholder='Required'/><br/>
+                    Body: <input type= 'text' name= 'body' placeholder='Required'/><br/>
+                    Author: <input type= 'text' name= 'author' placeholder='Required'/><br/>
+                    Likes: <input type= 'number' name= 'likes' /><br/>
+                    Sponsored: <input type= 'checkbox' name= 'sponsored' /><br/>
                         
-                        <input type= 'submit' name= '' value= 'Submit'/>
+                    <input type= 'submit' name= '' value= 'Submit'/>
                     </form>
-                </div>
             </div>
         )
     }

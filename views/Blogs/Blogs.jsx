@@ -15,15 +15,13 @@ class Blogs extends React.Component{
             </div>
             <div>
                 <h1>Blogs</h1>
-                {/* <a href='/blog/new' className='Btn'>Create New Blog</a> */}
-
                 <section className='blogSec'>
                     {blogs.map((blog, i) => (
                     <a href={`/blog/${blog._id}`}>
                         <div className='blogDiv'>
-                            {blog.title}
-                            {blog.author}
-                            {blog.body}
+                            {blog.title}<hr/>
+                            by. {blog.author}<hr/>
+                            <div className='previewText'>{blog.body}</div>
                         </div>
                     </a>
                     ))}
