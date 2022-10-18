@@ -23,7 +23,7 @@ class EditBlog extends React.Component{
                     Likes<input type='number' name='likes' defaultValue={blog.likes}/><br/>
                     Sponsored{blog.sponsored ? <input type= 'checkbox' name='sponsored' defaultChecked/> : <input type='checkbox' name='sponsored'/>}<br/>
 
-                    <input type='submit' name='' value='Update'/><br/>
+                    <input type='submit' name='' value='Update' className='btn'/><br/>
                     <a href={`/blog/${blog._id}`} className='btn'>Back</a>
                 </form>
             </div>

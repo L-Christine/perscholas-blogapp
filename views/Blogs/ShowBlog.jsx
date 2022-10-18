@@ -17,8 +17,8 @@ class ShowBlog extends React.Component{
                     <p>{blog.body}</p><br/>
                     <p>Likes: {blog.likes}</p>
                     <p>Sponsored: {blog.sponsored ? 'yes' : 'no' }</p><br/>
-                    <a href={`/blog/${blog._id}/edit`} className='btn'>Edit</a>
-                    <form action={`/blog/${blog._id}?_method=DELETE`} method='post'><input type='submit' value='Delete' className='btn'/></form>
+                    {/* <a href={`/blog/${blog._id}/edit`} className='btn'>Edit</a>
+                    <form action={`/blog/${blog._id}?_method=DELETE`} method='post'><input type='submit' value='Delete' className='btn'/></form> */}
                 </div>
             </div>
 

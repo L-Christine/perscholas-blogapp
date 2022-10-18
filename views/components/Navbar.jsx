@@ -2,6 +2,7 @@ const React = require('react')
 
 class Navbar extends React.Component{
     render(){
+        const {loggedInUser} = this.props
         return(
         <div>
             <head>
@@ -12,7 +13,8 @@ class Navbar extends React.Component{
                 <a href='/blog'>Blogs</a>
                 <a href='/blog/new'>Create</a>
                 <a href='/user/signup'>Sign in / Sign up</a>
-                <a href='/user/signout'>Sign out</a>
+               { loggedInUser && <a href='/user/signout'>Signout</a>}
+                { loggedInUser && <span>{loggedInUser}</span>}
             </nav>
 
         </div>
